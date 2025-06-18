@@ -542,16 +542,14 @@ nav a:hover, .header-nav a:hover {
   width: 100%;
 }
 
-.banner-spinner {
-  border: 6px solid #e7eaf6;
-  border-top: 6px solid #4e54c8;
-  border-radius: 50%;
-  width: 48px;
-  height: 48px;
-  animation: banner-spin 1s linear infinite;
+.banner-volleyball-spinner {
+  width: 54px;
+  height: 54px;
+  animation: volleyball-spin 1s linear infinite;
+  display: block;
 }
 
-@keyframes banner-spin {
+@keyframes volleyball-spin {
   0% { transform: rotate(0deg);}
   100% { transform: rotate(360deg);}
 }

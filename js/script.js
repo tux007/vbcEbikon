@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const slider = document.getElementById("banner-slider");
     slider.innerHTML = `
       <div class="banner-loading">
-        <div class="banner-spinner"></div>
+        <img src="/assets/img/volleyball-loader.png" alt="Volleyball Loader" class="banner-volleyball-spinner" />
       </div>
     `;
   }
