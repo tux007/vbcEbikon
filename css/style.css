@@ -573,3 +573,57 @@ nav a:hover, .header-nav a:hover {
   font-weight: 500;
   color: #222;
 }
+
+/* Sponsoren-Banner */
+.sponsoren-banner-container {
+  width: 100vw;
+  background: #f5f6fa;
+  padding: 0.3rem 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.2rem;
+  border-top: 1px solid #e7eaf6;
+  border-bottom: 1px solid #e7eaf6;
+  margin-top: 2.5rem;
+}
+
+.sponsoren-banner-track {
+  display: flex;
+  align-items: center;
+  gap: 6rem;
+  animation: sponsoren-scroll 22s linear infinite;
+  will-change: transform;
+}
+
+.sponsoren-logo {
+  height: 1.7rem;
+  max-height: 2.2rem;
+  width: auto;
+  object-fit: contain;
+  filter: none;
+  transition: filter 0.2s;
+  background: transparent;
+  padding: 0 0.7rem;
+  display: block;
+}
+
+.sponsoren-logo:hover {
+  filter: brightness(1.08) drop-shadow(0 2px 6px rgba(78,84,200,0.10));
+}
+
+.sponsoren-banner-inner {
+  display: flex;
+  align-items: center;
+  gap: 6rem;
+}
+
+@keyframes sponsoren-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
