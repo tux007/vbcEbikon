@@ -7,28 +7,47 @@ body {
 header {
     background-color: #333;
     color: #fff;
-    padding: 1rem;
+    padding: 1rem 0 1rem 0;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 10;
 }
 
 .header-logo {
-    margin-right: 2rem;
+    margin-left: 2rem;
     display: flex;
     align-items: center;
+    height: 54px;
 }
 
-nav {
+nav, .navbar, .header-nav {
     display: flex;
-    justify-content: center;
-    background-color: transparent;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 2.2rem;
+    background: transparent;
     width: auto;
+    margin-right: 2rem;
+    position: static;
 }
 
-nav a {
+nav a, .header-nav a {
     color: #fff !important;
+    background: transparent;
+    font-size: 1.08rem;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.2rem 0.7rem;
+    border-radius: 5px;
+    transition: background 0.2s, color 0.2s;
+}
+
+nav a:hover, .header-nav a:hover {
+    background: #444;
+    color: #4e54c8 !important;
 }
 
 /* header {
@@ -75,11 +94,150 @@ nav a {
   border-radius: 10px;
 }
 
-footer {
-  background-color: #333;
-  color: white;
+/* Hintergrundbild für den oberen Bereich */
+.hero-bg {
+  background: url('/assets/img/vbcEbikon.jpg') center center / cover no-repeat;
+  min-height: 420px;
+  width: 100vw;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  margin-top: 0; /* Kein Abstand nach oben */
+}
+
+.hero-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(220, 225, 240, 0.7); /* halbtransparenter Overlay */
+  z-index: 1;
+}
+
+/* Header-Logo links oben */
+.header-logo-fixed {
+  position: absolute;
+  top: 18px;
+  left: 28px;
+  z-index: 2;
+  height: 54px;
+  width: auto;
+}
+
+/* Navigation oben rechts */
+.header-nav {
+  position: absolute;
+  top: 24px;
+  right: 38px;
+  z-index: 2;
+  display: flex;
+  gap: 2.2rem;
+}
+
+.header-nav a {
+  color: #222;
+  background: transparent;
+  font-size: 1.08rem;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.2rem 0.7rem;
+  border-radius: 5px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.header-nav a:hover {
+  background: #e7eaf6;
+  color: #4e54c8;
+}
+
+/* Hero Text mittig */
+.hero-center-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 420px;
   text-align: center;
-  padding: 1em;
+  padding-top: 60px;
+}
+
+.hero-center-content h1 {
+  font-size: 2.8rem;
+  font-weight: 400;
+  margin-bottom: 1.2rem;
+  color: #222;
+  letter-spacing: 1px;
+}
+
+.hero-center-content p {
+  font-size: 1.18rem;
+  color: #222;
+  margin-bottom: 1.2rem;
+  max-width: 700px;
+}
+
+.hero-center-content .hero-sub {
+  font-size: 1.05rem;
+  color: #444;
+  margin-bottom: 0.7rem;
+}
+
+/* Footer */
+.site-footer {
+  background: #e7eaf6;
+  color: #222;
+  padding: 2.5rem 0 1.5rem 0;
+  text-align: center;
+  border-top: 1px solid #d0d5e0;
+  margin-top: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.site-footer .footer-logo {
+  display: block;
+  margin: 0 0 0 2rem;
+  height: 32px;
+}
+
+.site-footer .footer-links {
+  margin: 0 2rem 0 0;
+  font-size: 1rem;
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.site-footer .footer-links a {
+  color: #222;
+  text-decoration: underline;
+  font-size: 1rem;
+}
+
+.site-footer .footer-links a:hover {
+  color: #4e54c8;
+}
+
+@media (max-width: 700px) {
+  .site-footer {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: left;
+    gap: 1.2rem;
+  }
+  .site-footer .footer-logo {
+    margin: 0 0 1rem 0.5rem;
+  }
+  .site-footer .footer-links {
+    margin: 0 0.5rem 0 0;
+    justify-content: flex-start;
+  }
 }
 
 /* Banner Slider Styles */

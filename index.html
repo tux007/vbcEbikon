@@ -8,35 +8,37 @@
   </head>
   <body>
     <header>
-      <div class="header-container">
-        <div class="logo">
-          <img
-            src="/assets/img/LogoVBC.png"
-            alt="VBC Ebikon Logo"
-            style="height: 60px; margin-right: 1rem"
-          />
-        </div>
-        <div class="header-links">
-          <nav>
-            <a href="#">Home</a>
-            <a href="#">Teams</a>
-            <a href="#">Sponsoren</a>
-            <a href="#">Über uns</a>
-            <a href="“">Volleylager</a>
-            <a href="#">Kontakt</a>
-          </nav>
-        </div>
-      </div>
+      <img src="/assets/img/LogoVBC.png" alt="VBC Ebikon Logo" class="header-logo" />
+      <nav class="header-nav">
+        <a href="#">Home</a>
+        <a href="#">Teams</a>
+        <a href="#">Sponsoren</a>
+        <a href="#">Über uns</a>
+        <a href="#">Volleyballlager</a>
+        <a href="#">Kontakt</a>
+      </nav>
     </header>
-
-    <section
-      class="hero"
-      style="background-image: url('/assets/img/vbcEbikon.jpg')"
-    >
-      <div class="hero-text">
-        <h1>Willkommen beim VBC Ebikon</h1>
+    <div class="hero-bg">
+      <div class="hero-center-content">
+        <h1>Volleyballclub Ebikon</h1>
+        <p>
+          Hallo zusammen und herzlich willkommen auf dem Internetauftritt des VBC
+          Ebikon.<br />
+          Falls du gerne mit News, Matchberichten und Bildern versorgt wirst, kannst
+          du uns auch gerne auf Instagram folgen.<br />
+        </p>
+        <div class="hero-sub">
+          Die aktuellen Spielergebnisse und den Spielplan findest du hier.
+        </div>
       </div>
-    </section>
+    </div>
+
+    <!-- Banner Slider bleibt wie gehabt -->
+    <div class="banner-slider-container">
+      <button class="banner-arrow" id="banner-arrow-left">&lt;</button>
+      <div class="banner-slider" id="banner-slider"></div>
+      <button class="banner-arrow" id="banner-arrow-right">&gt;</button>
+    </div>
 
     <main>
       <section class="news">
@@ -47,18 +49,7 @@
       </section>
 
       <section class="spiele">
-        <h2>Letzte Resultate</h2>
-
-        <!-- Banner Slider -->
-        <div class="banner-slider-container">
-          <button class="banner-arrow" id="banner-arrow-left">&#8592;</button>
-          <div class="banner-slider" id="banner-slider"></div>
-          <button class="banner-arrow" id="banner-arrow-right">&#8594;</button>
-        </div>
         
-        <div id="resultate-container">
-          <!-- JS lädt Resultate dynamisch -->
-        </div>
         <h2>Kommende Spiele</h2>
         <div id="spiele-container">
           <!-- JS lädt Spiele dynamisch -->
@@ -66,15 +57,22 @@
       </section>
     </main>
 
-    <footer>
+    <footer class="site-footer">
+      <img src="/assets/img/LogoVBC.png" alt="VBC Ebikon Logo" class="footer-logo">
       <div class="footer-links">
-        <a href="https://instagram.com/vbcebikon" target="_blank">Instagram</a>
-        | <a href="datenschutz.html">Datenschutz</a> |
-        <a href="impressum.html">Impressum</a> |
-        <a href="#" onclick="openCookieSettings()">Cookie-Einstellungen</a>
+        <a href="#">Impressum</a>
+        <a href="#">Datenschutz</a>
+        <a href="#">Cookie Einstellungen</a>
       </div>
     </footer>
-
-    <script src="/js/script.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
+         
+          <span class="fa fa-instagram"></span>
+        </a>
+      </div>
+    </footer>
+    <script src="js/script.js"></script>
   </body>
 </html>
