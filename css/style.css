@@ -5,8 +5,8 @@ body {
 }
 
 header {
-    background-color: #333;
-    color: #fff;
+    background-color: #e7eaf6;
+    color: #222;
     padding: 1rem 0 1rem 0;
     display: flex;
     flex-direction: row;
@@ -35,7 +35,7 @@ nav, .navbar, .header-nav {
 }
 
 nav a, .header-nav a {
-    color: #fff !important;
+    color: #222 !important;
     background: transparent;
     font-size: 1.08rem;
     text-decoration: none;
@@ -46,7 +46,7 @@ nav a, .header-nav a {
 }
 
 nav a:hover, .header-nav a:hover {
-    background: #444;
+    background: #d0d5e0;
     color: #4e54c8 !important;
 }
 
@@ -194,7 +194,7 @@ nav a:hover, .header-nav a:hover {
   border-top: 1px solid #d0d5e0;
   margin-top: 0;
   display: flex;
-  align-items: flex-start;
+  align-items: center; /* statt flex-start */
   justify-content: space-between;
   flex-wrap: wrap;
 }
@@ -214,17 +214,29 @@ nav a:hover, .header-nav a:hover {
   justify-content: flex-end;
 }
 
-.site-footer .footer-links a {
-  color: #222;
-  text-decoration: underline;
-  font-size: 1rem;
+.site-footer .footer-social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 2rem 0 0;
+  height: 32px;
 }
 
-.site-footer .footer-links a:hover {
+.site-footer .footer-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #222;
+  font-size: 2.1rem;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.site-footer .footer-social a:hover {
   color: #4e54c8;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 900px) {
   .site-footer {
     flex-direction: column;
     align-items: stretch;
@@ -234,7 +246,8 @@ nav a:hover, .header-nav a:hover {
   .site-footer .footer-logo {
     margin: 0 0 1rem 0.5rem;
   }
-  .site-footer .footer-links {
+  .site-footer .footer-links,
+  .site-footer .footer-social {
     margin: 0 0.5rem 0 0;
     justify-content: flex-start;
   }
@@ -243,7 +256,7 @@ nav a:hover, .header-nav a:hover {
 /* Banner Slider Styles */
 .banner-slider-container {
   width: 100%;
-  max-width: 900px;
+  max-width: 1100px;
   margin: 2rem auto;
   display: flex;
   align-items: center;
@@ -288,6 +301,45 @@ nav a:hover, .header-nav a:hover {
   overflow: visible;
   width: auto;
   justify-content: center;
+}
+
+.banner,
+#naechste-spiele-banner .banner {
+  min-width: 900px;
+  max-width: 1100px;
+  flex: 0 0 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#naechste-spiele-banner {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+#naechste-spiele-banner table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.5rem;
+}
+
+#naechste-spiele-banner th,
+#naechste-spiele-banner td {
+  border-bottom: 1px solid #e7eaf6;
+  padding: 0.4rem 0.7rem;
+  font-size: 1rem;
+  text-align: left;
+}
+
+#naechste-spiele-banner th {
+  background: #f5f6fa;
+  color: #444;
+  font-weight: 600;
+}
+
+#naechste-spiele-banner tr:last-child td {
+  border-bottom: none;
 }
 
 .banner {
@@ -502,4 +554,22 @@ nav a:hover, .header-nav a:hover {
 @keyframes banner-spin {
   0% { transform: rotate(0deg);}
   100% { transform: rotate(360deg);}
+}
+
+/* Zentrierung für h2 Letzte Ergebnisse */
+.letzte-ergebnisse-title {
+  text-align: center;
+  margin-top: 2.5rem;
+  margin-bottom: 1.2rem;
+  font-size: 2rem;
+  font-weight: 500;
+  color: #222;
+}
+.letzte-ergebnisse-title {
+  text-align: center;
+  margin-top: 2.5rem;
+  margin-bottom: 1.2rem;
+  font-size: 2rem;
+  font-weight: 500;
+  color: #222;
 }

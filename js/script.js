@@ -1,28 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const newsContainer = document.getElementById("news-container");
-  newsContainer.innerHTML = `
-    <ul>
-      <li>🏐 Trainingslager 2025 findet statt</li>
-      <li>🎉 Volleyball isch kuul!</li>
-    </ul>
-  `;
-
-  // const resultateContainer = document.getElementById("resultate-container");
-  // resultateContainer.innerHTML = `
-  //   <ul>
-  //     <li>Herren 1 - Luzern 2: 3:1</li>
-  //     <li>Damen 2 - Emmen: 2:3</li>
-  //   </ul>
-  // `;
-
-  const spieleContainer = document.getElementById("spiele-container");
-  spieleContainer.innerHTML = `
-    <ul>
-      <li>Herren 1 vs. Horw – ergendeinisch im Herbsch, 19:30</li>
-      <li>Damen 1 vs. Kriens – au im Herbscht, 18:00</li>
-    </ul>
-  `;
-
   // Team Konfiguration
   const teams = [
     { teamId: 1730, gender: "f", name: "DJ1" },
@@ -188,5 +164,53 @@ document.addEventListener("DOMContentLoaded", () => {
       ];
     }
     renderBanners();
+
+    // Bereich für "Nächste Spiele" Banner vorbereiten
+    function renderNaechsteSpieleBanner() {
+      const container = document.getElementById("naechste-spiele-banner");
+      if (!container) return;
+
+      // Platzhalterdaten für alle Teams in einem Banner
+      let html = `
+        <div class="banner" style="margin-bottom:1.5rem;">
+          <div class="banner-header">
+            <div class="banner-date">Datum/Zeit</div>
+            <div class="banner-location">Ort</div>
+          </div>
+          <div class="banner-score-sets" style="margin-bottom: 1rem;">
+            <!-- Hier werden alle Teams gelistet -->
+            <table style="width:100%; border-collapse:collapse;">
+              <thead>
+                <tr>
+                  <th style="text-align:left; padding: 0.2rem 0.5rem;">Team</th>
+                  <th style="text-align:left; padding: 0.2rem 0.5rem;">Heim</th>
+                  <th style="text-align:left; padding: 0.2rem 0.5rem;">Gast</th>
+                  <th style="text-align:left; padding: 0.2rem 0.5rem;">Liga</th>
+                  <th style="text-align:left; padding: 0.2rem 0.5rem;">Datum/Zeit</th>
+                  <th style="text-align:left; padding: 0.2rem 0.5rem;">Ort</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${teams.map(team => `
+                  <tr>
+                    <td style="padding: 0.2rem 0.5rem;">${team.name}</td>
+                    <td style="padding: 0.2rem 0.5rem;">Heimteam</td>
+                    <td style="padding: 0.2rem 0.5rem;">Auswärtsteam</td>
+                    <td style="padding: 0.2rem 0.5rem;">Liga</td>
+                    <td style="padding: 0.2rem 0.5rem;">Datum/Zeit</td>
+                    <td style="padding: 0.2rem 0.5rem;">Ort</td>
+                  </tr>
+                `).join("")}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      `;
+      container.innerHTML = html;
+    }
+
+    // Nach dem Rendern der letzten Ergebnisse Banner:
+    renderNaechsteSpieleBanner();
   });
 });
+
