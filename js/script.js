@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   newsContainer.innerHTML = `
     <ul>
       <li>🏐 Trainingslager 2025 findet statt</li>
-      <li>🎉 Volleyball ischt kuul!</li>
+      <li>🎉 Volleyball isch kuul!</li>
     </ul>
   `;
 
@@ -116,6 +116,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  function showBannerLoading() {
+    const slider = document.getElementById("banner-slider");
+    slider.innerHTML = `
+      <div class="banner-loading">
+        <div class="banner-spinner"></div>
+      </div>
+    `;
+  }
+
   document.getElementById("banner-arrow-left").addEventListener("click", () => {
     bannerStart = getBannerIndex(bannerStart - 1);
     renderBanners();
@@ -125,6 +134,9 @@ document.addEventListener("DOMContentLoaded", () => {
     bannerStart = getBannerIndex(bannerStart + 1);
     renderBanners();
   });
+
+  // Zeige Spinner bevor die Banner geladen werden
+  showBannerLoading();
 
   // Daten für alle Teams laden
   Promise.all(
@@ -146,8 +158,8 @@ document.addEventListener("DOMContentLoaded", () => {
             playDateTime: formatDateTime(game.playDate),
             homeTeam: game.teams.home.caption,
             awayTeam: game.teams.away.caption,
-            homeLogo: game.teams.home.logo, // <-- Logo aus Response
-            awayLogo: game.teams.away.logo, // <-- Logo aus Response
+            homeLogo: game.teams.home.logo,
+            awayLogo: game.teams.away.logo,
             league: game.league.caption,
             city: game.hall.city,
             setResultsRaw: game.setResults,

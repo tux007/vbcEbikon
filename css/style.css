@@ -97,7 +97,7 @@ nav a:hover, .header-nav a:hover {
 /* Hintergrundbild für den oberen Bereich */
 .hero-bg {
   background: url('/assets/img/vbcEbikon.jpg') center center / cover no-repeat;
-  min-height: 420px;
+  min-height: 800px;
   width: 100vw;
   position: relative;
   display: flex;
@@ -159,7 +159,7 @@ nav a:hover, .header-nav a:hover {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 420px;
+  min-height: 650px;
   text-align: center;
   padding-top: 60px;
 }
@@ -479,4 +479,27 @@ nav a:hover, .header-nav a:hover {
     width: 12px;
     height: 12px;
   }
+}
+
+/* Banner Loading Spinner */
+.banner-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 180px;
+  width: 100%;
+}
+
+.banner-spinner {
+  border: 6px solid #e7eaf6;
+  border-top: 6px solid #4e54c8;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  animation: banner-spin 1s linear infinite;
+}
+
+@keyframes banner-spin {
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(360deg);}
 }
