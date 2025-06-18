@@ -1,73 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VBC Ebikon</title>
-  <link rel="stylesheet" href="css/style.css" />
-</head>
-<body>
-  <header>
-    <div class="header-container">
-      <div class="logo">
-        <img src="/assets/img/LogoVBC.png" alt="VBC Ebikon Logo" style="height: 60px; margin-right: 1rem;">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VBC Ebikon</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="header-container">
+        <div class="logo">
+          <img
+            src="/assets/img/LogoVBC.png"
+            alt="VBC Ebikon Logo"
+            style="height: 60px; margin-right: 1rem"
+          />
+        </div>
+        <div class="header-links">
+          <nav>
+            <a href="#">Home</a>
+            <a href="#">Teams</a>
+            <a href="#">Sponsoren</a>
+            <a href="#">Über uns</a>
+            <a href="“">Volleylager</a>
+            <a href="#">Kontakt</a>
+          </nav>
+        </div>
       </div>
-      <div class="header-links">
-      <nav>
-        <a href="#">Home</a>
-        <a href="#">Teams</a>
-        <a href="#">Spielplan</a>
-        <a href="#">Kontakt</a>
-      </nav>
-      </div>
-    </div>
-  </header>
+    </header>
 
-  <section class="hero" style="background-image: url('/assets/img/vbcEbikon.jpg');">
-    <div class="hero-text">
-      <h1>Willkommen beim VBC Ebikon</h1>
-    </div>
-  </section>
-
-  <main>
-    <section class="news">
-      <h2>Aktuelle News</h2>
-      <div id="news-container">
-        <!-- JS lädt News dynamisch -->
-      </div>
-    </section>
-
-    <section class="spiele">
-      <h2>Letzte Resultate</h2>
-      <div id="resultate-container">
-        <!-- JS lädt Resultate dynamisch -->
-      </div>
-      <h2>Kommende Spiele</h2>
-      <div id="spiele-container">
-        <!-- JS lädt Spiele dynamisch -->
+    <section
+      class="hero"
+      style="background-image: url('/assets/img/vbcEbikon.jpg')"
+    >
+      <div class="hero-text">
+        <h1>Willkommen beim VBC Ebikon</h1>
       </div>
     </section>
-  </main>
 
-  <footer>
-    <div class="footer-links">
-      <a href="https://instagram.com/vbcebikon" target="_blank">Instagram</a> |
-      <a href="datenschutz.html">Datenschutz</a> |
-      <a href="impressum.html">Impressum</a> |
-      <a href="#" onclick="openCookieSettings()">Cookie-Einstellungen</a>
-    </div>
-  </footer>
+    <main>
+      <section class="news">
+        <h2>Aktuelle News</h2>
+        <div id="news-container">
+          <!-- JS lädt News dynamisch -->
+        </div>
+      </section>
 
-  <script src="/js/script.js"></script>
-</body>
-</html>
-      <a href="https://instagram.com/vbcebikon" target="_blank">Instagram</a> |
-      <a href="datenschutz.html">Datenschutz</a> |
-      <a href="impressum.html">Impressum</a> |
-      <a href="#" onclick="openCookieSettings()">Cookie-Einstellungen</a>
-    </div>
-  </footer>
+      <section class="spiele">
+        <h2>Letzte Resultate</h2>
 
-  <script src="/js/script.js"></script>
-</body>
+        <!-- Banner Slider -->
+        <div class="banner-slider-container">
+          <button class="banner-arrow" id="banner-arrow-left">&#8592;</button>
+          <div class="banner-slider" id="banner-slider"></div>
+          <button class="banner-arrow" id="banner-arrow-right">&#8594;</button>
+        </div>
+        
+        <div id="resultate-container">
+          <!-- JS lädt Resultate dynamisch -->
+        </div>
+        <h2>Kommende Spiele</h2>
+        <div id="spiele-container">
+          <!-- JS lädt Spiele dynamisch -->
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-links">
+        <a href="https://instagram.com/vbcebikon" target="_blank">Instagram</a>
+        | <a href="datenschutz.html">Datenschutz</a> |
+        <a href="impressum.html">Impressum</a> |
+        <a href="#" onclick="openCookieSettings()">Cookie-Einstellungen</a>
+      </div>
+    </footer>
+
+    <script src="/js/script.js"></script>
+  </body>
 </html>
