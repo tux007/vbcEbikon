@@ -172,32 +172,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Platzhalterdaten für alle Teams in einem Banner
       let html = `
-        <div class="banner" style="margin-bottom:1.5rem;">
-          <div class="banner-header">
-            <div class="banner-date">Datum/Zeit</div>
-            <div class="banner-location">Ort</div>
-          </div>
+        <div class="banner" style="margin-bottom:1.5rem;">          
           <div class="banner-score-sets" style="margin-bottom: 1rem;">
             <!-- Hier werden alle Teams gelistet -->
             <table style="width:100%; border-collapse:collapse;">
               <thead>
                 <tr>
+                  <th style="text-align:left; padding: 0.2rem 0.5rem;">Datum/Zeit</th>
                   <th style="text-align:left; padding: 0.2rem 0.5rem;">Team</th>
                   <th style="text-align:left; padding: 0.2rem 0.5rem;">Heim</th>
                   <th style="text-align:left; padding: 0.2rem 0.5rem;">Gast</th>
-                  <th style="text-align:left; padding: 0.2rem 0.5rem;">Liga</th>
-                  <th style="text-align:left; padding: 0.2rem 0.5rem;">Datum/Zeit</th>
+                  <th style="text-align:left; padding: 0.2rem 0.5rem;">Liga</th>                  
                   <th style="text-align:left; padding: 0.2rem 0.5rem;">Ort</th>
                 </tr>
               </thead>
               <tbody>
                 ${teams.map(team => `
                   <tr>
+                    <td style="padding: 0.2rem 0.5rem;">Datum/Zeit</td>
                     <td style="padding: 0.2rem 0.5rem;">${team.name}</td>
                     <td style="padding: 0.2rem 0.5rem;">Heimteam</td>
                     <td style="padding: 0.2rem 0.5rem;">Auswärtsteam</td>
-                    <td style="padding: 0.2rem 0.5rem;">Liga</td>
-                    <td style="padding: 0.2rem 0.5rem;">Datum/Zeit</td>
+                    <td style="padding: 0.2rem 0.5rem;">Liga</td>                    
                     <td style="padding: 0.2rem 0.5rem;">Ort</td>
                   </tr>
                 `).join("")}
