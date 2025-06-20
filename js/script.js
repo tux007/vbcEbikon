@@ -212,3 +212,45 @@ document.addEventListener("DOMContentLoaded", () => {
   
 });
 
+// Navbar active link handling
+document.addEventListener("DOMContentLoaded", () => {
+  const navLinks = document.querySelectorAll('nav a, .header-nav a');
+  if (navLinks.length > 0) {
+    // Remove all active classes
+    navLinks.forEach(link => link.classList.remove('active'));
+
+    // Aktuellen Pfad bestimmen
+    const currentPath = window.location.pathname.replace(/\/+$/, "");
+    let foundActive = false;
+
+    navLinks.forEach(link => {
+      const linkPath = link.getAttribute("href");
+      if (
+        linkPath &&
+        linkPath !== "#" &&
+        (linkPath === currentPath ||
+          (linkPath !== "/" && currentPath.endsWith(linkPath)))
+      ) {
+        link.classList.add('active');
+        foundActive = true;
+      }
+    });
+
+    // Wenn kein Link passt, Home als aktiv markieren (nur beim ersten Laden)
+    if (!foundActive) {
+      navLinks[0].classList.add('active');
+    }
+
+    // Add click handler to update active class
+    navLinks.forEach(link => {
+      link.addEventListener('click', function (e) {
+        // Entferne active von allen Links
+        navLinks.forEach(l => l.classList.remove('active'));
+        // Setze active nur auf den geklickten Link
+        this.classList.add('active');
+      });
+    });
+  }
+
+});
+
