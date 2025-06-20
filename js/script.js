@@ -208,5 +208,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Nach dem Rendern der letzten Ergebnisse Banner:
     renderNaechsteSpieleBanner();
   });
+
+  
 });
 

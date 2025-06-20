@@ -48,12 +48,34 @@ nav a,
   padding: 0.2rem 0.7rem;
   border-radius: 5px;
   transition: background 0.2s, color 0.2s;
+  position: relative;
 }
 
+/* Unterstreichung nur bei Hover, Focus oder aktivem Link */
 nav a:hover,
-.header-nav a:hover {
-  background: #d0d5e0;
-  color: #4e54c8 !important;
+.header-nav a:hover,
+nav a:focus,
+.header-nav a:focus {
+  background: none;
+  color: #222 !important;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  text-decoration-thickness: 2px;
+}
+
+nav a.active,
+.header-nav a.active {
+  background: none;
+  color: #222 !important;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  text-decoration-thickness: 2px;
+}
+
+nav a,
+.header-nav a {
+  /* Entferne Unterstreichung im Normalzustand */
+  text-decoration: none;
 }
 
 /* header {
@@ -811,9 +833,9 @@ nav a:hover,
 .header-nav .dropdown-content {
   display: none;
   position: absolute;
-  top: 110%;
+  top: calc(100% + 6px); /* Abstand wie text-underline-offset */
   left: 0;
-  min-width: 140px;
+  min-width: 180px;
   background: #fff;
   box-shadow: 0 8px 24px rgba(78, 84, 200, 0.13), 0 2px 8px rgba(0, 0, 0, 0.07);
   border-radius: 8px;
@@ -833,7 +855,7 @@ nav a:hover,
   display: block;
   padding: 0.55em 1.2em;
   color: #222;
-  background: transparent;
+  background: none;
   text-decoration: none;
   font-size: 1.05em;
   border-radius: 0;
@@ -843,15 +865,18 @@ nav a:hover,
 
 .dropdown-content a:hover,
 .dropdown-content a:focus {
-  background: #e7eaf6;
+  background: none;
   color: #4e54c8;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  text-decoration-thickness: 2px;
 }
 
 /* Dropdown indicator for navbar links with dropdown */
 .navbar .dropdown > a,
 .header-nav .dropdown > a {
   position: relative;
-  padding-right: 1.6em; /* Weniger Platz für kleineren Pfeil */
+  padding-right: 1.1em; /* Pfeil näher am Text */
 }
 
 .navbar .dropdown > a::after,
@@ -861,15 +886,15 @@ nav a:hover,
   border: solid #4e54c8;
   border-width: 0 1.5px 1.5px 0;
   padding: 2.5px;
-  margin-left: 0.3em;
+  margin-left: 0.08em; /* weniger Abstand zum Text */
   position: absolute;
-  right: 0.3em;
+  right: 0.1em; /* näher an den Text */
   top: 50%;
   transform: translateY(-50%) rotate(45deg);
   pointer-events: none;
-  width: 0.10em;
-  height: 0.10em;
-  transition: border-color 0.2s;
+  width: 0.06em;
+  height: 0.06em;
+  transition: border-color 0.2s, transform 0.2s;
   vertical-align: middle;
 }
 
@@ -878,6 +903,7 @@ nav a:hover,
 .navbar .dropdown:focus-within > a::after,
 .header-nav .dropdown:focus-within > a::after {
   border-color: #222;
+  transform: translateY(-50%) rotate(-135deg);
 }
 
 
