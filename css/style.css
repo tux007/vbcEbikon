@@ -12,8 +12,10 @@ header {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  position: relative;
-  z-index: 10;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(78, 84, 200, 0.07);
 }
 
 .header-logo {
@@ -768,6 +770,114 @@ nav a:hover,
 		transform: translate(0) rotate(0) scale(1);
 		opacity: 1;
 	}
+}
+
+/* Sticky Navigation */
+/* header {
+  background-color: #111;
+  color: white;
+  padding: 1em;
+} */
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2em;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5em 1em;
+}
+
+/* Dropdown Styles */
+.navbar .dropdown,
+.header-nav .dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.navbar .dropdown-content,
+.header-nav .dropdown-content {
+  display: none;
+  position: absolute;
+  top: 110%;
+  left: 0;
+  min-width: 140px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(78, 84, 200, 0.13), 0 2px 8px rgba(0, 0, 0, 0.07);
+  border-radius: 8px;
+  padding: 0.5em 0;
+  z-index: 200;
+  transition: opacity 0.18s;
+}
+
+.navbar .dropdown:hover .dropdown-content,
+.header-nav .dropdown:hover .dropdown-content,
+.navbar .dropdown:focus-within .dropdown-content,
+.header-nav .dropdown:focus-within .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 0.55em 1.2em;
+  color: #222;
+  background: transparent;
+  text-decoration: none;
+  font-size: 1.05em;
+  border-radius: 0;
+  transition: background 0.18s, color 0.18s;
+  white-space: nowrap;
+}
+
+.dropdown-content a:hover,
+.dropdown-content a:focus {
+  background: #e7eaf6;
+  color: #4e54c8;
+}
+
+/* Dropdown indicator for navbar links with dropdown */
+.navbar .dropdown > a,
+.header-nav .dropdown > a {
+  position: relative;
+  padding-right: 1.6em; /* Weniger Platz für kleineren Pfeil */
+}
+
+.navbar .dropdown > a::after,
+.header-nav .dropdown > a::after {
+  content: '';
+  display: inline-block;
+  border: solid #4e54c8;
+  border-width: 0 1.5px 1.5px 0;
+  padding: 2.5px;
+  margin-left: 0.3em;
+  position: absolute;
+  right: 0.3em;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  pointer-events: none;
+  width: 0.10em;
+  height: 0.10em;
+  transition: border-color 0.2s;
+  vertical-align: middle;
+}
+
+.navbar .dropdown:hover > a::after,
+.header-nav .dropdown:hover > a::after,
+.navbar .dropdown:focus-within > a::after,
+.header-nav .dropdown:focus-within > a::after {
+  border-color: #222;
 }
 
 

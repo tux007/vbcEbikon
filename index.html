@@ -4,33 +4,67 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>VBC Ebikon</title>
-    <link rel="stylesheet" href="css/style.css" />    
+    <link rel="stylesheet" href="css/style.css" />
     <link rel="icon" href="/assets/img/favicon.ico" type="image/x-icon" />
   </head>
   <body>
     <header>
-      <img src="/assets/img/LogoVBC.png" alt="VBC Ebikon Logo" class="header-logo" />
+      <img
+        src="/assets/img/LogoVBC.png"
+        alt="VBC Ebikon Logo"
+        class="header-logo"
+      />
       <nav class="header-nav">
         <a href="#">Home</a>
-        <a href="#">Teams</a>
+        <div class="dropdown">
+          <a href="#">Teams</a>
+          <div class="dropdown-content">
+            <a href="/teams/damen1.html">Damen 1</a>
+            <a href="/teams/damen2.html">Damen 2</a>
+            <a href="/teams/dj1.html">DJ1</a>
+            <a href="/teams/dj2.html">DJ2</a>
+            <a href="/teams/dj3.html">DJ3</a>
+            <a href="/teams/herren1.html">Herren 1</a>
+            <a href="/teams/herren2.html">Herren 2</a>
+          </div>
+        </div>
         <a href="#">Sponsoren</a>
-        <a href="#">Über uns</a>
+        <div class="dropdown">
+          <a href="#">Über uns</a>
+          <div class="dropdown-content">
+            <a href="/ueber-uns/verein.html">Verein</a>
+            <a href="/ueber-uns/vorstand.html">Vorstand</a>
+            <a href="/ueber-uns/trainer.html">Trainer</a>
+            <a href="/ueber-uns/mitgliedschaft.html">Mitgliedschaft</a>
+            <a href="/ueber-uns/kontakt.html">Kontakt</a>
+          </div>
+        </div>
         <a href="#">Volleyballlager</a>
         <a href="#">Kontakt</a>
       </nav>
     </header>
     <div class="hero-bg">
       <div class="hero-center-content">
-        		<div class="animate one">
-        <span>V</span><span>o</span><span>l</span><span>l</span><span>e</span><span>y</span><span>b</span><span>a</span><span>l</span><span>l</span><span>c</span><span>l</span><span>u</span><span>b</span> &nbsp;
-        <span>E</span><span>B</span><span>I</span><span>K</span><span>O</span><span>N</span>
-            </div>
+        <div class="animate one">
+          <span>V</span><span>o</span><span>l</span><span>l</span><span>e</span
+          ><span>y</span><span>b</span><span>a</span><span>l</span><span>l</span
+          ><span>c</span><span>l</span><span>u</span><span>b</span> &nbsp;
+          <span>E</span><span>b</span><span>i</span><span>k</span><span>o</span
+          ><span>n</span>
+        </div>
         <!-- <h1 class="neon-text">Volleyballclub Ebikon</h1> -->
         <p>
-          Hallo zusammen und herzlich willkommen auf dem Internetauftritt des VBC Ebikon.<br />
-          Falls du gerne mit News, Matchberichten und Bildern versorgt wirst, kannst
-          du uns auch gerne auf
-          <a href="https://www.instagram.com/vbc_ebikon/" target="_blank" rel="noopener" class="hover-underline">Instagram</a>
+          Hallo zusammen und herzlich willkommen auf dem Internetauftritt des
+          VBC Ebikon.<br />
+          Falls du gerne mit News, Matchberichten und Bildern versorgt wirst,
+          kannst du uns auch gerne auf
+          <a
+            href="https://www.instagram.com/vbc_ebikon/"
+            target="_blank"
+            rel="noopener"
+            class="hover-underline"
+            >Instagram</a
+          >
           folgen.<br />
         </p>
         <div class="hero-sub">
@@ -48,43 +82,100 @@
 
     <!-- Nächste Spiele Bereich -->
     <h2 class="letzte-ergebnisse-title">Nächste Spiele</h2>
-    <div class="banner-slider-container" style="justify-content: center;">
-      <div id="naechste-spiele-banner" style="width:100%;"></div>
+    <div class="banner-slider-container" style="justify-content: center">
+      <div id="naechste-spiele-banner" style="width: 100%"></div>
     </div>
 
     <!-- Sponsoren-Banner direkt oberhalb des Footers einfügen -->
     <div class="sponsoren-banner-container">
       <div class="sponsoren-banner-track">
         <div class="sponsoren-banner-inner">
-          <img src="/assets/img/Sponsoren/sponsor1.jpg" alt="Sponsor 1" class="sponsoren-logo">
-          <img src="/assets/img/Sponsoren/sponsor3.png" alt="Sponsor 3" class="sponsoren-logo">
-          <img src="/assets/img/Sponsoren/sponsor4.jpg" alt="Sponsor 4" class="sponsoren-logo">
-          <img src="/assets/img/Sponsoren/sponsor5.png" alt="Sponsor 5" class="sponsoren-logo">
-          <img src="/assets/img/Sponsoren/sponsor6.png" alt="Sponsor 5" class="sponsoren-logo">
+          <img
+            src="/assets/img/Sponsoren/sponsor1.jpg"
+            alt="Sponsor 1"
+            class="sponsoren-logo"
+          />
+          <img
+            src="/assets/img/Sponsoren/sponsor3.png"
+            alt="Sponsor 3"
+            class="sponsoren-logo"
+          />
+          <img
+            src="/assets/img/Sponsoren/sponsor4.jpg"
+            alt="Sponsor 4"
+            class="sponsoren-logo"
+          />
+          <img
+            src="/assets/img/Sponsoren/sponsor5.png"
+            alt="Sponsor 5"
+            class="sponsoren-logo"
+          />
+          <img
+            src="/assets/img/Sponsoren/sponsor6.png"
+            alt="Sponsor 5"
+            class="sponsoren-logo"
+          />
           <!-- ...weitere Logos nach Bedarf... -->
         </div>
         <div class="sponsoren-banner-inner">
-          <img src="/assets/img/Sponsoren/sponsor1.jpg" alt="Sponsor 1" class="sponsoren-logo">
-          <img src="/assets/img/Sponsoren/sponsor3.png" alt="Sponsor 3" class="sponsoren-logo">
-          <img src="/assets/img/Sponsoren/sponsor4.jpg" alt="Sponsor 4" class="sponsoren-logo">
-          <img src="/assets/img/Sponsoren/sponsor5.png" alt="Sponsor 5" class="sponsoren-logo">
-          <img src="/assets/img/Sponsoren/sponsor6.png" alt="Sponsor 5" class="sponsoren-logo">
+          <img
+            src="/assets/img/Sponsoren/sponsor1.jpg"
+            alt="Sponsor 1"
+            class="sponsoren-logo"
+          />
+          <img
+            src="/assets/img/Sponsoren/sponsor3.png"
+            alt="Sponsor 3"
+            class="sponsoren-logo"
+          />
+          <img
+            src="/assets/img/Sponsoren/sponsor4.jpg"
+            alt="Sponsor 4"
+            class="sponsoren-logo"
+          />
+          <img
+            src="/assets/img/Sponsoren/sponsor5.png"
+            alt="Sponsor 5"
+            class="sponsoren-logo"
+          />
+          <img
+            src="/assets/img/Sponsoren/sponsor6.png"
+            alt="Sponsor 5"
+            class="sponsoren-logo"
+          />
           <!-- ...die gleichen Logos nochmal für Endloslauf... -->
         </div>
       </div>
     </div>
 
     <footer class="site-footer">
-      <img src="/assets/img/LogoVBC.png" alt="VBC Ebikon Logo" class="footer-logo">
+      <img
+        src="/assets/img/LogoVBC.png"
+        alt="VBC Ebikon Logo"
+        class="footer-logo"
+      />
       <div class="footer-links">
         <a href="#">Impressum</a>
         <a href="#">Datenschutz</a>
         <a href="#">Cookie Einstellungen</a>
       </div>
       <div class="footer-social">
-        <a href="https://www.instagram.com/vbc_ebikon/" target="_blank" rel="noopener" aria-label="Instagram">
-          <svg width="32" height="32" viewBox="0 0 448 512" fill="currentColor" aria-hidden="true">
-            <path d="M224,202.66A53.34,53.34,0,1,0,277.34,256,53.38,53.38,0,0,0,224,202.66Zm124.71-41a54,54,0,0,0-30.35-30.35C293.19,120,224,120,224,120s-69.19,0-94.36,11.31a54,54,0,0,0-30.35,30.35C88,162.81,88,224,88,224s0,69.19,11.31,94.36a54,54,0,0,0,30.35,30.35C154.81,392,224,392,224,392s69.19,0,94.36-11.31a54,54,0,0,0,30.35-30.35C360,293.19,360,224,360,224S360,154.81,348.71,161.66ZM224,338a82,82,0,1,1,82-82A82,82,0,0,1,224,338Zm85.4-148.6a19.2,19.2,0,1,1-19.2-19.2A19.2,19.2,0,0,1,309.4,189.4Z"/>
+        <a
+          href="https://www.instagram.com/vbc_ebikon/"
+          target="_blank"
+          rel="noopener"
+          aria-label="Instagram"
+        >
+          <svg
+            width="32"
+            height="32"
+            viewBox="0 0 448 512"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              d="M224,202.66A53.34,53.34,0,1,0,277.34,256,53.38,53.38,0,0,0,224,202.66Zm124.71-41a54,54,0,0,0-30.35-30.35C293.19,120,224,120,224,120s-69.19,0-94.36,11.31a54,54,0,0,0-30.35,30.35C88,162.81,88,224,88,224s0,69.19,11.31,94.36a54,54,0,0,0,30.35,30.35C154.81,392,224,392,224,392s69.19,0,94.36-11.31a54,54,0,0,0,30.35-30.35C360,293.19,360,224,360,224S360,154.81,348.71,161.66ZM224,338a82,82,0,1,1,82-82A82,82,0,0,1,224,338Zm85.4-148.6a19.2,19.2,0,1,1-19.2-19.2A19.2,19.2,0,0,1,309.4,189.4Z"
+            />
           </svg>
         </a>
       </div>
@@ -92,4 +183,3 @@
     <script src="js/script.js"></script>
   </body>
 </html>
-
