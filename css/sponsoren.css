@@ -1,0 +1,105 @@
+html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      main {
+        flex: 1 0 auto;
+      }
+
+      footer.site-footer {
+        flex-shrink: 0;
+      }
+
+      .sponsoren-main-block {
+        max-width: 900px;
+        margin: 2.5rem auto 2rem auto;
+        padding: 0 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .sponsoren-main-text {
+        width: 100%;
+        max-width: 420px;
+        margin-bottom: 2.5rem;
+        font-size: 1.15rem;
+        line-height: 1.7;
+        text-align: center;
+      }
+
+      .sponsoren-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        gap: 2.5rem 2.5rem;
+        width: 100%;
+        max-width: 700px;
+        margin: 0 auto 2.5rem auto;
+        justify-items: center;
+        align-items: center;
+      }
+
+      .sponsoren-kachel-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #fff;
+        border-radius: 18px;
+        box-shadow: 0 6px 24px rgba(78, 84, 200, 0.13),
+          0 2px 8px rgba(0, 0, 0, 0.07);
+        padding: 2.2rem 2.5rem;
+        min-width: 260px;
+        min-height: 140px;
+        max-width: 340px;
+        max-height: 180px;
+        transition: box-shadow 0.2s, transform 0.2s;
+        margin: 0;
+      }
+
+      .sponsoren-kachel-link:hover {
+        box-shadow: 0 12px 36px rgba(78, 84, 200, 0.18);
+        transform: scale(1.04);
+      }
+
+      .sponsoren-kachel-logo {
+        height: 100px;
+        max-width: 260px;
+        object-fit: contain;
+        display: block;
+      }
+
+      @media (max-width: 900px) {
+        .sponsoren-main-block {
+          max-width: 98vw;
+        }
+
+        .sponsoren-grid {
+          max-width: 98vw;
+          gap: 1.2rem 1.2rem;
+        }
+
+        .sponsoren-kachel-link {
+          min-width: 140px;
+          min-height: 80px;
+          padding: 1.2rem 0.7rem;
+        }
+
+        .sponsoren-kachel-logo {
+          height: 60px;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .sponsoren-grid {
+          grid-template-columns: 1fr;
+          grid-template-rows: repeat(6, 1fr);
+        }
+      }
