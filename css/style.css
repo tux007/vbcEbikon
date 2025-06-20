@@ -5,49 +5,53 @@ body {
 }
 
 header {
-    background-color: #e7eaf6;
-    color: #222;
-    padding: 1rem 0 1rem 0;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    position: relative;
-    z-index: 10;
+  background-color: #e7eaf6;
+  color: #222;
+  padding: 1rem 0 1rem 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 10;
 }
 
 .header-logo {
-    margin-left: 2rem;
-    display: flex;
-    align-items: center;
-    height: 54px;
+  margin-left: 2rem;
+  display: flex;
+  align-items: center;
+  height: 54px;
 }
 
-nav, .navbar, .header-nav {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 2.2rem;
-    background: transparent;
-    width: auto;
-    margin-right: 2rem;
-    position: static;
+nav,
+.navbar,
+.header-nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 2.2rem;
+  background: transparent;
+  width: auto;
+  margin-right: 2rem;
+  position: static;
 }
 
-nav a, .header-nav a {
-    color: #222 !important;
-    background: transparent;
-    font-size: 1.08rem;
-    text-decoration: none;
-    font-weight: 500;
-    padding: 0.2rem 0.7rem;
-    border-radius: 5px;
-    transition: background 0.2s, color 0.2s;
+nav a,
+.header-nav a {
+  color: #222 !important;
+  background: transparent;
+  font-size: 1.08rem;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.2rem 0.7rem;
+  border-radius: 5px;
+  transition: background 0.2s, color 0.2s;
 }
 
-nav a:hover, .header-nav a:hover {
-    background: #d0d5e0;
-    color: #4e54c8 !important;
+nav a:hover,
+.header-nav a:hover {
+  background: #d0d5e0;
+  color: #4e54c8 !important;
 }
 
 /* header {
@@ -96,7 +100,7 @@ nav a:hover, .header-nav a:hover {
 
 /* Hintergrundbild für den oberen Bereich */
 .hero-bg {
-  background: url('/assets/img/vbcEbikon.jpg') center center / cover no-repeat;
+  background: url("/assets/img/vbcEbikon.jpg") center center / cover no-repeat;
   min-height: 800px;
   width: 100vw;
   position: relative;
@@ -151,6 +155,7 @@ nav a:hover, .header-nav a:hover {
   color: #4e54c8;
 }
 
+
 /* Hero Text mittig */
 .hero-center-content {
   position: relative;
@@ -165,7 +170,7 @@ nav a:hover, .header-nav a:hover {
 }
 
 .hero-center-content h1 {
-  font-size: 2.8rem;
+  font-size: 5rem;
   font-weight: 400;
   margin-bottom: 1.2rem;
   color: #222;
@@ -349,7 +354,7 @@ nav a:hover, .header-nav a:hover {
   background: #fff;
   color: #222;
   border-radius: 14px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.10), 0 2px 8px rgba(78,84,200,0.10);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1), 0 2px 8px rgba(78, 84, 200, 0.1);
   padding: 1.5rem 2rem 1.2rem 2rem;
   display: flex;
   flex-direction: column;
@@ -362,7 +367,7 @@ nav a:hover, .header-nav a:hover {
 
 .banner:hover {
   transform: translateY(-6px) scale(1.03);
-  box-shadow: 0 8px 24px rgba(78,84,200,0.18), 0 4px 16px rgba(0,0,0,0.12);
+  box-shadow: 0 8px 24px rgba(78, 84, 200, 0.18), 0 4px 16px rgba(0, 0, 0, 0.12);
 }
 
 .banner-header {
@@ -550,8 +555,12 @@ nav a:hover, .header-nav a:hover {
 }
 
 @keyframes volleyball-spin {
-  0% { transform: rotate(0deg);}
-  100% { transform: rotate(360deg);}
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* Zentrierung für h2 Letzte Ergebnisse */
@@ -608,7 +617,7 @@ nav a:hover, .header-nav a:hover {
 }
 
 .sponsoren-logo:hover {
-  filter: brightness(1.08) drop-shadow(0 2px 6px rgba(78,84,200,0.10));
+  filter: brightness(1.08) drop-shadow(0 2px 6px rgba(78, 84, 200, 0.1));
 }
 
 .sponsoren-banner-inner {
@@ -632,12 +641,12 @@ nav a:hover, .header-nav a:hover {
   position: relative;
   display: inline-block;
   text-decoration: none;
-  transition: color 0.2s, transform 0.25s cubic-bezier(.4,2,.6,1);
+  transition: color 0.2s, transform 0.25s cubic-bezier(0.4, 2, 0.6, 1);
 }
 
 .hover-underline::after,
 .hover-underline::before {
-  content: '';
+  content: "";
   position: absolute;
   width: 100%;
   height: 2px;
@@ -675,3 +684,91 @@ nav a:hover, .header-nav a:hover {
 .hover-underline:focus::before {
   transform: scaleX(1);
 }
+
+.animate {
+	font-size: 50px;
+	margin: 100px 0 0;
+	border-bottom: 2px solid #ccc;
+}
+
+.animate span {
+	display: inline-block;
+}
+
+.animate span:nth-of-type(2) {
+	animation-delay: .05s;
+}
+.animate span:nth-of-type(3) {
+	animation-delay: .1s;
+}
+.animate span:nth-of-type(4) {
+	animation-delay: .15s;
+}
+.animate span:nth-of-type(5) {
+	animation-delay: .2s;
+}
+.animate span:nth-of-type(6) {
+	animation-delay: .25s;
+}
+.animate span:nth-of-type(7) {
+	animation-delay: .3s;
+}
+.animate span:nth-of-type(8) {
+	animation-delay: .35s;
+}
+.animate span:nth-of-type(9) {
+	animation-delay: .4s;
+}
+.animate span:nth-of-type(10) {
+	animation-delay: .45s;
+}
+.animate span:nth-of-type(11) {
+	animation-delay: .5s;
+}
+.animate span:nth-of-type(12) {
+	animation-delay: .55s;
+}
+.animate span:nth-of-type(13) {
+	animation-delay: .6s;
+}
+.animate span:nth-of-type(14) {
+	animation-delay: .65s;
+}
+.animate span:nth-of-type(15) {
+	animation-delay: .7s;
+}
+.animate span:nth-of-type(16) {
+	animation-delay: .75s;
+}
+.animate span:nth-of-type(17) {
+	animation-delay: .8s;
+}
+.animate span:nth-of-type(18) {
+	animation-delay: .85s;
+}
+.animate span:nth-of-type(19) {
+	animation-delay: .9s;
+}
+.animate span:nth-of-type(20) {
+	animation-delay: .95s;
+}
+
+.one span {
+	color: black;
+	opacity: 0;
+	transform: translate(-150px, -50px) rotate(-180deg) scale(3);
+	animation: revolveScale .8s forwards;
+}
+
+@keyframes revolveScale {
+	60% {
+		transform: translate(20px, 20px) rotate(30deg) scale(.3);
+	}
+
+	100% {
+		transform: translate(0) rotate(0) scale(1);
+		opacity: 1;
+	}
+}
+
+
