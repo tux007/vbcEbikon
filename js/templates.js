@@ -55,26 +55,28 @@ const Templates = {
   upcomingGamesTable: (validGames) => `
     <div class="banner" style="margin-bottom:1.5rem;">          
       <div class="banner-score-sets" style="margin-bottom: 1rem;">
-        <table style="width:100%; border-collapse:collapse;">
+        <table style="width:100%; border-collapse:collapse; table-layout: fixed;">
           <thead>
             <tr>
-              <th style="text-align:left; padding: 0.2rem 0.5rem;">Datum/Zeit</th>
-              <th style="text-align:left; padding: 0.2rem 0.5rem;">Team</th>
-              <th style="text-align:left; padding: 0.2rem 0.5rem;">Heim</th>
-              <th style="text-align:left; padding: 0.2rem 0.5rem;">Gast</th>
-              <th style="text-align:left; padding: 0.2rem 0.5rem;">Liga</th>                  
-              <th style="text-align:left; padding: 0.2rem 0.5rem;">Ort</th>
+              <th style="text-align:left; padding: 0.2rem 0.3rem; width: 18%; font-size: 0.9em;">Datum/Zeit</th>
+              <th style="text-align:left; padding: 0.2rem 0.3rem; width: 8%; font-size: 0.9em;">Team</th>
+              <th style="text-align:left; padding: 0.2rem 0.3rem; width: 18%; font-size: 0.9em;">Heim</th>
+              <th style="text-align:left; padding: 0.2rem 0.3rem; width: 18%; font-size: 0.9em;">Gast</th>
+              <th style="text-align:left; padding: 0.2rem 0.3rem; width: 10%; font-size: 0.9em;">Liga</th>                  
+              <th style="text-align:left; padding: 0.2rem 0.3rem; width: 10%; font-size: 0.9em;">Ort</th>
+              <th style="text-align:left; padding: 0.2rem 0.3rem; width: 20%; font-size: 0.9em;">Halle</th>
             </tr>
           </thead>
           <tbody>
             ${validGames.map(game => `
               <tr>
-                <td style="padding: 0.2rem 0.5rem;">${game.playDateTime}</td>
-                <td style="padding: 0.2rem 0.5rem;">${game.teamName}</td>
-                <td style="padding: 0.2rem 0.5rem;">${game.homeTeam}</td>
-                <td style="padding: 0.2rem 0.5rem;">${game.awayTeam}</td>
-                <td style="padding: 0.2rem 0.5rem;">${game.league}</td>                    
-                <td style="padding: 0.2rem 0.5rem;">${game.city}</td>
+                <td style="padding: 0.2rem 0.3rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 0.85em;">${game.playDateTime}</td>
+                <td style="padding: 0.2rem 0.3rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 0.85em; font-weight: bold;">${game.teamName}</td>
+                <td style="padding: 0.2rem 0.3rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 0.85em;">${game.homeTeam}</td>
+                <td style="padding: 0.2rem 0.3rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 0.85em;">${game.awayTeam}</td>
+                <td style="padding: 0.2rem 0.3rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 0.85em;">${game.league}</td>                    
+                <td style="padding: 0.2rem 0.3rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 0.85em;">${game.city}</td>
+                <td style="padding: 0.2rem 0.3rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 0.85em;">${game.hall}</td>
               </tr>
             `).join("")}
           </tbody>

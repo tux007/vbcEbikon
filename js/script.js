@@ -41,6 +41,14 @@ document.addEventListener("DOMContentLoaded", () => {
       date.toLocaleTimeString("de-CH", { hour: "2-digit", minute: "2-digit" });
   }
 
+  function formatDateTimeShort(dateStr) {
+    // dateStr: "2025-03-10 20:00:00" - Für nächste Spiele mit Monatszahl
+    const date = new Date(dateStr.replace(" ", "T"));
+    return date.toLocaleDateString("de-CH", { day: "2-digit", month: "2-digit", year: "numeric" }) +
+      ", " +
+      date.toLocaleTimeString("de-CH", { hour: "2-digit", minute: "2-digit" });
+  }
+
   function renderBanners() {
     const slider = document.getElementById("banner-slider");
     slider.innerHTML = "";
@@ -156,13 +164,14 @@ document.addEventListener("DOMContentLoaded", () => {
               const game = games[0];
               return {
                 teamName: team.name,
-                playDateTime: formatDateTime(game.playDate),
+                playDateTime: formatDateTimeShort(game.playDate),
                 homeTeam: game.teams.home.caption,
                 awayTeam: game.teams.away.caption,
                 homeLogo: game.teams.home.logo,
                 awayLogo: game.teams.away.logo,
                 league: game.league.caption,
                 city: game.hall.city,
+                hall: game.hall.caption,
                 playDate: new Date(game.playDate) // Für Sortierung
               };
             })
