@@ -1,5 +1,3 @@
-// HTML Templates für die Volleyball Website
-
 const Templates = {
   // Banner für letzte Ergebnisse
   resultBanner: (banner, homeBold, awayBold, setResultsArr) => `
@@ -10,21 +8,33 @@ const Templates = {
       </div>
       <div class="banner-score-row">
         <div class="banner-score-main">
-          <span class="${homeBold}">${banner.resultSummary.wonSetsHomeTeam}</span>
+          <span class="${homeBold}">${
+    banner.resultSummary.wonSetsHomeTeam
+  }</span>
           <span>:</span>
-          <span class="${awayBold}">${banner.resultSummary.wonSetsAwayTeam}</span>
+          <span class="${awayBold}">${
+    banner.resultSummary.wonSetsAwayTeam
+  }</span>
         </div>
         <div class="banner-score-sets">
-          ${setResultsArr.map(s => `<div>${s}</div>`).join("")}
+          ${setResultsArr.map((s) => `<div>${s}</div>`).join("")}
         </div>
       </div>
       <div class="banner-teams-row">
         <div class="banner-team home">
-          ${banner.homeLogo ? `<img class="banner-team-logo" src="${banner.homeLogo}" alt=""/>` : ""}
+          ${
+            banner.homeLogo
+              ? `<img class="banner-team-logo" src="${banner.homeLogo}" alt=""/>`
+              : ""
+          }
           ${banner.homeTeam}
         </div>
         <div class="banner-team away">
-          ${banner.awayLogo ? `<img class="banner-team-logo" src="${banner.awayLogo}" alt=""/>` : ""}
+          ${
+            banner.awayLogo
+              ? `<img class="banner-team-logo" src="${banner.awayLogo}" alt=""/>`
+              : ""
+          }
           ${banner.awayTeam}
         </div>
       </div>
@@ -68,7 +78,9 @@ const Templates = {
             </tr>
           </thead>
           <tbody>
-            ${validGames.map(game => `
+            ${validGames
+              .map(
+                (game) => `
               <tr>
                 <td style="padding: 0.2rem 0.3rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 0.85em;">${game.playDateTime}</td>
                 <td style="padding: 0.2rem 0.3rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 0.85em; font-weight: bold;">${game.teamName}</td>
@@ -78,16 +90,18 @@ const Templates = {
                 <td style="padding: 0.2rem 0.3rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 0.85em;">${game.city}</td>
                 <td style="padding: 0.2rem 0.3rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 0.85em;">${game.hall}</td>
               </tr>
-            `).join("")}
+            `
+              )
+              .join("")}
           </tbody>
         </table>
       </div>
     </div>
-  `
+  `,
 };
 
 // Templates global verfügbar machen
-if (typeof module !== 'undefined' && module.exports) {
+if (typeof module !== "undefined" && module.exports) {
   module.exports = Templates;
 } else {
   window.Templates = Templates;

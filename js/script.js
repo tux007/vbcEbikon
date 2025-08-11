@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     { teamId: 4985, gender: "f", name: "Damen 1" },
     { teamId: 2797, gender: "m", name: "Herren 1" },
     { teamId: 128, gender: "f", name: "Damen 2" },
-    { teamId: 1728, gender: "m", name: "Herren 2" }
+    { teamId: 1728, gender: "m", name: "Herren 2" },
   ];
   const clubId = 911080;
   const apiBase = "https://api.volleyball.ch/indoor/recentResults";
@@ -27,26 +27,35 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!setResults) return [];
     return Object.keys(setResults)
       .sort((a, b) => Number(a) - Number(b))
-      .map(
-        (set) =>
-          `${setResults[set].home}:${setResults[set].away}`
-      );
+      .map((set) => `${setResults[set].home}:${setResults[set].away}`);
   }
 
   function formatDateTime(dateStr) {
     // dateStr: "2025-03-10 20:00:00"
     const date = new Date(dateStr.replace(" ", "T"));
-    return date.toLocaleDateString("de-CH", { day: "2-digit", month: "long", year: "numeric" }) +
+    return (
+      date.toLocaleDateString("de-CH", {
+        day: "2-digit",
+        month: "long",
+        year: "numeric",
+      }) +
       ", " +
-      date.toLocaleTimeString("de-CH", { hour: "2-digit", minute: "2-digit" });
+      date.toLocaleTimeString("de-CH", { hour: "2-digit", minute: "2-digit" })
+    );
   }
 
   function formatDateTimeShort(dateStr) {
-    // dateStr: "2025-03-10 20:00:00" - Für nächste Spiele mit Monatszahl
+    // dateStr: Für nächste Spiele mit Monatszahl
     const date = new Date(dateStr.replace(" ", "T"));
-    return date.toLocaleDateString("de-CH", { day: "2-digit", month: "2-digit", year: "numeric" }) +
+    return (
+      date.toLocaleDateString("de-CH", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+      }) +
       ", " +
-      date.toLocaleTimeString("de-CH", { hour: "2-digit", minute: "2-digit" });
+      date.toLocaleTimeString("de-CH", { hour: "2-digit", minute: "2-digit" })
+    );
   }
 
   function renderBanners() {
@@ -57,7 +66,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const banner = banners[idx];
       if (!banner) continue;
 
-      // Bold the higher set count
       let homeSets = banner.resultSummary.wonSetsHomeTeam;
       let awaySets = banner.resultSummary.wonSetsAwayTeam;
       let homeBold = homeSets > awaySets ? "bold" : "";
@@ -66,7 +74,12 @@ document.addEventListener("DOMContentLoaded", () => {
       // Satzresultate
       const setResultsArr = formatSetResults(banner.setResultsRaw);
 
-      slider.innerHTML += Templates.resultBanner(banner, homeBold, awayBold, setResultsArr);
+      slider.innerHTML += Templates.resultBanner(
+        banner,
+        homeBold,
+        awayBold,
+        setResultsArr
+      );
     }
   }
 
@@ -80,10 +93,12 @@ document.addEventListener("DOMContentLoaded", () => {
     renderBanners();
   });
 
-  document.getElementById("banner-arrow-right").addEventListener("click", () => {
-    bannerStart = getBannerIndex(bannerStart + 1);
-    renderBanners();
-  });
+  document
+    .getElementById("banner-arrow-right")
+    .addEventListener("click", () => {
+      bannerStart = getBannerIndex(bannerStart + 1);
+      renderBanners();
+    });
 
   // Zeige Spinner bevor die Banner geladen werden
   showBannerLoading();
@@ -94,7 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
       fetch(
         `${apiBase}?region=SVRI&gender=${team.gender}&clubId=${clubId}&teamId=${team.teamId}`,
         {
-          headers: { Authorization: authHeader }
+          headers: { Authorization: authHeader },
         }
       )
         .then((res) => res.json())
@@ -113,7 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
             league: game.league.caption,
             city: game.hall.city,
             setResultsRaw: game.setResults,
-            resultSummary: game.resultSummary
+            resultSummary: game.resultSummary,
           };
         })
         .catch(() => null)
@@ -133,13 +148,13 @@ document.addEventListener("DOMContentLoaded", () => {
           league: "-",
           city: "-",
           setResultsRaw: {},
-          resultSummary: { wonSetsHomeTeam: "-", wonSetsAwayTeam: "-" }
-        }
+          resultSummary: { wonSetsHomeTeam: "-", wonSetsAwayTeam: "-" },
+        },
       ];
     }
     renderBanners();
 
-    // Bereich für "Nächste Spiele" Banner vorbereiten
+    // Bereich für "Nächste Spiele" Banner
     function renderNaechsteSpieleBanner() {
       const container = document.getElementById("naechste-spiele-banner");
       if (!container) return;
@@ -153,7 +168,7 @@ document.addEventListener("DOMContentLoaded", () => {
           fetch(
             `${upcomingApiBase}?region=SVRI&gender=${team.gender}&clubId=${clubId}&teamId=${team.teamId}`,
             {
-              headers: { Authorization: authHeader }
+              headers: { Authorization: authHeader },
             }
           )
             .then((res) => res.json())
@@ -172,14 +187,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 league: game.league.caption,
                 city: game.hall.city,
                 hall: game.hall.caption,
-                playDate: new Date(game.playDate) // Für Sortierung
+                playDate: new Date(game.playDate), // Für Sortierung
               };
             })
             .catch(() => null)
         )
       ).then((upcomingGames) => {
         const validGames = upcomingGames.filter(Boolean);
-        
+
         if (validGames.length === 0) {
           container.innerHTML = Templates.noUpcomingGames();
           return;
@@ -195,22 +210,20 @@ document.addEventListener("DOMContentLoaded", () => {
     // Nach dem Rendern der letzten Ergebnisse Banner:
     renderNaechsteSpieleBanner();
   });
-
-  
 });
 
 // Navbar active link handling
 document.addEventListener("DOMContentLoaded", () => {
-  const navLinks = document.querySelectorAll('nav a, .header-nav a');
+  const navLinks = document.querySelectorAll("nav a, .header-nav a");
   if (navLinks.length > 0) {
     // Remove all active classes
-    navLinks.forEach(link => link.classList.remove('active'));
+    navLinks.forEach((link) => link.classList.remove("active"));
 
     // Aktuellen Pfad bestimmen
     const currentPath = window.location.pathname.replace(/\/+$/, "");
     let foundActive = false;
 
-    navLinks.forEach(link => {
+    navLinks.forEach((link) => {
       const linkPath = link.getAttribute("href");
       if (
         linkPath &&
@@ -218,26 +231,24 @@ document.addEventListener("DOMContentLoaded", () => {
         (linkPath === currentPath ||
           (linkPath !== "/" && currentPath.endsWith(linkPath)))
       ) {
-        link.classList.add('active');
+        link.classList.add("active");
         foundActive = true;
       }
     });
 
     // Wenn kein Link passt, Home als aktiv markieren (nur beim ersten Laden)
     if (!foundActive) {
-      navLinks[0].classList.add('active');
+      navLinks[0].classList.add("active");
     }
 
     // Add click handler to update active class
-    navLinks.forEach(link => {
-      link.addEventListener('click', function (e) {
+    navLinks.forEach((link) => {
+      link.addEventListener("click", function (e) {
         // Entferne active von allen Links
-        navLinks.forEach(l => l.classList.remove('active'));
+        navLinks.forEach((l) => l.classList.remove("active"));
         // Setze active nur auf den geklickten Link
-        this.classList.add('active');
+        this.classList.add("active");
       });
     });
   }
-
 });
-
