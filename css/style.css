@@ -1013,18 +1013,37 @@ nav a,
   object-fit: cover;
 }
 
+.team-info-blocks {
+  max-width: 50vw;
+  margin: 0 auto;
+  text-align: left;
+}
+.team-info-blocks .banner {
+  max-width: 100%;
+}
+.team-info-blocks table {
+  width: 100%;
+  table-layout: fixed;
+}
+.team-info-blocks th, .team-info-blocks td {
+  white-space: nowrap;
+  padding: 0.2rem 0.7rem;
+  font-size: 0.95em;
+  text-align: left;
+}
+
 .team-info-blocks #team-ranking-table {
   width: 100%;
   max-width: none;
   margin: 0;
   text-align: left;
 }
-.team-info-blocks table {
+/* .team-info-blocks table {
   width: 100%;
   min-width: 0;
   border-collapse: collapse;
   table-layout: auto;
-}
+} */
 .team-info-blocks th, .team-info-blocks td {
   white-space: nowrap;
   padding: 0.2rem 0.7rem;

@@ -232,19 +232,19 @@ document.addEventListener("DOMContentLoaded", () => {
             '<div style="padding:1rem;">Keine Ranglistendaten gefunden.</div>';
           return;
         }
-        // Breite, linksbündige Tabelle ohne Umbruch
+        // Banner-Design, Tabelle exakt so breit wie das Teamfoto
         const html = `
           <div class="banner" style="margin-bottom:1.5rem; text-align:left;">
             <div class="banner-score-sets" style="margin-bottom: 1rem;">
-              <table style="width:100%; min-width:600px; border-collapse:collapse; table-layout: fixed;">
+              <table style="width:100%; border-collapse:collapse; table-layout:fixed;">
                 <thead>
                   <tr>
-                    <th style="text-align:left; padding: 0.2rem 0.5rem; width:7%; font-size: 0.95em;">Rang</th>
-                    <th style="text-align:left; padding: 0.2rem 0.5rem; width:32%; font-size: 0.95em;">Team</th>
-                    <th style="text-align:left; padding: 0.2rem 0.5rem; width:11%; font-size: 0.95em;">Spiele</th>
-                    <th style="text-align:left; padding: 0.2rem 0.5rem; width:11%; font-size: 0.95em;">Siege</th>
-                    <th style="text-align:left; padding: 0.2rem 0.5rem; width:11%; font-size: 0.95em;">Niederlagen</th>
-                    <th style="text-align:left; padding: 0.2rem 0.5rem; width:11%; font-size: 0.95em;">Punkte</th>
+                    <th style="text-align:left; padding: 0.2rem 0.7rem; width:7%; font-size: 0.95em;">Rang</th>
+                    <th style="text-align:left; padding: 0.2rem 0.7rem; width:38%; font-size: 0.95em;">Team</th>
+                    <th style="text-align:left; padding: 0.2rem 0.7rem; width:11%; font-size: 0.95em;">Spiele</th>
+                    <th style="text-align:left; padding: 0.2rem 0.7rem; width:11%; font-size: 0.95em;">Siege</th>
+                    <th style="text-align:left; padding: 0.2rem 0.7rem; width:11%; font-size: 0.95em;">Niederlagen</th>
+                    <th style="text-align:left; padding: 0.2rem 0.7rem; width:11%; font-size: 0.95em;">Punkte</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -252,12 +252,12 @@ document.addEventListener("DOMContentLoaded", () => {
                     .map(
                       (row) => `
                     <tr>
-                      <td style="padding: 0.2rem 0.5rem; font-size: 0.92em; white-space:nowrap;">${row.rank}</td>
-                      <td style="padding: 0.2rem 0.5rem; font-size: 0.92em; font-weight: bold; white-space:nowrap;">${row.teamCaption}</td>
-                      <td style="padding: 0.2rem 0.5rem; font-size: 0.92em; white-space:nowrap;">${row.games}</td>
-                      <td style="padding: 0.2rem 0.5rem; font-size: 0.92em; white-space:nowrap;">${row.wins}</td>
-                      <td style="padding: 0.2rem 0.5rem; font-size: 0.92em; white-space:nowrap;">${row.defeats}</td>
-                      <td style="padding: 0.2rem 0.5rem; font-size: 0.92em; white-space:nowrap;">${row.points}</td>
+                      <td style="padding: 0.2rem 0.7rem; font-size: 0.92em; white-space:nowrap;">${row.rank}</td>
+                      <td style="padding: 0.2rem 0.7rem; font-size: 0.92em; font-weight: bold; white-space:nowrap;">${row.teamCaption}</td>
+                      <td style="padding: 0.2rem 0.7rem; font-size: 0.92em; white-space:nowrap;">${row.games}</td>
+                      <td style="padding: 0.2rem 0.7rem; font-size: 0.92em; white-space:nowrap;">${row.wins}</td>
+                      <td style="padding: 0.2rem 0.7rem; font-size: 0.92em; white-space:nowrap;">${row.defeats}</td>
+                      <td style="padding: 0.2rem 0.7rem; font-size: 0.92em; white-space:nowrap;">${row.points}</td>
                     </tr>
                   `
                     )
