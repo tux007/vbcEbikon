@@ -976,3 +976,156 @@ nav a,
 }
 
  */
+
+/* Teamseite Damen 1 und weitere Teams */
+.team-main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2.5rem 1rem 3rem 1rem;
+  /* background: #fff; */
+  /* border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(78,84,200,0.08), 0 2px 8px rgba(0,0,0,0.07); */
+  text-align: center;
+}
+
+.team-title {
+  font-size: 2.3rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: black;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.team-photo-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.team-photo {
+  max-width: 50vw;
+  height: auto;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  object-fit: cover;
+}
+
+.team-info-blocks #team-ranking-table {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  text-align: left;
+}
+.team-info-blocks table {
+  width: 100%;
+  min-width: 0;
+  border-collapse: collapse;
+  table-layout: auto;
+}
+.team-info-blocks th, .team-info-blocks td {
+  white-space: nowrap;
+  padding: 0.2rem 0.7rem;
+  font-size: 0.95em;
+  text-align: left;
+}
+
+.team-info-blocks section {
+  text-align: left;
+  margin-bottom: 2rem;
+}
+
+.team-info-section h2,
+.team-players-section h2,
+.team-ranking-section h2 {
+  font-size: 1.35rem;
+  color: #222;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.team-training-list,
+.team-player-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto 1.5rem auto;
+  display: inline-block;
+  text-align: left;
+}
+.team-training-list li,
+.team-player-list li {
+  font-size: 1.08rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: 6px;
+  margin-bottom: 0.3rem;
+  color: #333;
+  box-shadow: 0 1px 4px rgba(78,84,200,0.04);
+}
+
+.team-ranking-section {
+  margin-top: 2.5rem;
+}
+#team-ranking-table {
+  margin: 0 auto;
+  min-height: 60px;
+  background: #f7f7fb;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(78,84,200,0.04);
+  padding: 1.2rem;
+  max-width: 600px;
+}
+
+/* Ausklappbare Team-Sektionen */
+.team-toggle-btn {
+  background: none;
+  color: #222;
+  border: none;
+  font-size: 1.08rem;
+  font-weight: 600;
+  padding: 0.5rem 1.2rem;
+  border-radius: 8px;
+  margin-bottom: 0.7rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  padding-left: 0;
+  transition: background 0.2s;
+}
+.team-toggle-btn:hover {
+  background: none;
+}
+.team-toggle-btn span {
+  font-size: 1.3em;
+  font-weight: bold;
+  margin-right: 0.7em;
+  margin-left: 0;
+  display: inline-block;
+  width: 1.2em;
+  text-align: center;
+}
+.team-collapsible {
+  transition: all 0.2s;
+  margin-bottom: 1.2rem;
+}
+
+@media (max-width: 700px) {
+  .team-main {
+    padding: 1.2rem 0.2rem 2rem 0.2rem;
+  }
+  .team-photo {
+    max-width: 90vw;
+    max-height: 220px;
+  }
+  .team-title {
+    font-size: 1.5rem;
+  }
+  .team-info-blocks {
+    max-width: 98vw;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}

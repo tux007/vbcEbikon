@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Team Damen 1</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/sponsoren.css" />
+    <link rel="icon" href="../assets/img/favicon.ico" type="image/x-icon" />
+  </head>
+  <body>
+    <header>
+      <a href="index.html">
+        <img
+          src="/assets/img/LogoVBC.png"
+          alt="VBC Ebikon Logo"
+          class="header-logo"
+        />
+      </a>
+      <nav class="header-nav">
+        <a href="../index.html">Home</a>
+        <div class="dropdown">
+          <a href="#">Teams</a>
+          <div class="dropdown-content">
+            <a href="/teams/damen1.html">Damen 1</a>
+            <a href="/teams/damen2.html">Damen 2</a>
+            <a href="/teams/dj1.html">Juniorinnen 1</a>
+            <a href="/teams/dj2.html">Juniorinnen 2</a>
+            <a href="/teams/dj3.html">Juniorinnen 3</a>
+            <a href="/teams/herren1.html">Herren 1</a>
+            <a href="/teams/herren2.html">Herren 2</a>
+            <a href="/teams/herren3.html">Herren 3</a>
+            <a href="/teams/UBereich.html">U-Bereich</a>
+            <a href="/teams/herren3.html">Pläuschler 1</a>
+            <a href="/teams/herren3.html">Pläuschler 3000</a>
+          </div>
+        </div>
+        <a href="../sponsoren.html">Sponsoren</a>
+        <div class="dropdown">
+          <a href="#">Über uns</a>
+          <div class="dropdown-content">
+            <a href="../ueber-uns/jahresprogramm.html">Jahreprogramm</a>
+            <a href="../ueber-uns/vorstand.html">Vorstand</a>
+            <a href="../ueber-uns/beach.html">Beachfeld</a>
+            <a href="../ueber-uns/hallen.html">Hallen</a>
+            <a href="../ueber-uns/dokumente.html">Dokumente</a>
+          </div>
+        </div>
+        <a href="#">Volleyballlager</a>
+        <a href="#">Kontakt</a>
+      </nav>
+    </header>
+
+    <main>
+      <main class="team-main">
+        <h1 class="team-title">Damen 1</h1>
+        <h2>2. Liga</h2>
+        <div
+          class="team-photo-section"
+          style="text-align: center; margin-bottom: 2rem"
+        >
+          <img
+            src="/assets/img/Teamfotos/damen1.jpg"
+            alt="Teamfoto Damen 1"
+            class="team-photo"
+            style="
+              max-width: 100%;
+              height: auto;
+              border-radius: 12px;
+              box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+            "
+          />
+        </div>
+        <div class="team-info-blocks">
+          <section class="team-info-section" style="margin-bottom: 2rem">
+            <button
+              class="team-toggle-btn"
+              type="button"
+              onclick="toggleSection('training')"
+            >
+              <span id="toggle-icon-training">+</span> Trainingszeiten
+            </button>
+            <div
+              id="team-training-section"
+              class="team-collapsible"
+              style="display: none"
+            >
+              <ul class="team-training-list">
+                <li>Montag, 20:00 - 22:00 Uhr, Turnhalle Wydenhof</li>
+                <li>Donnerstag, 20:00 - 22:00 Uhr, Turnhalle Wydenhof</li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="team-players-section" style="margin-bottom: 2rem">
+            <button
+              class="team-toggle-btn"
+              type="button"
+              onclick="toggleSection('players')"
+            >
+              <span id="toggle-icon-players">+</span> Unsere Spielerinnen
+            </button>
+            <div
+              id="team-players-section"
+              class="team-collapsible"
+              style="display: none"
+            >
+              <ul class="team-player-list">
+                <li>
+                  Spielerin 1, Spielerin 2, Spielerin 3, Spielerin 4, Spielerin
+                  5, Spielerin 6, Spielerin 7, Spielerin 8
+                </li>
+                <!-- Weitere Namen nach Bedarf -->
+              </ul>
+            </div>
+          </section>
+          <section class="team-ranking-section" style="margin-bottom: 2rem">
+            <button
+              class="team-toggle-btn"
+              type="button"
+              onclick="toggleSection('ranking')"
+            >
+              <span id="toggle-icon-ranking">+</span> Rangliste
+            </button>
+            <div
+              id="team-ranking-section"
+              class="team-collapsible"
+              style="display: none"
+            >
+              <div id="team-ranking-table" style="width: 100%"></div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </main>
+
+    <footer class="site-footer">
+      <script>
+        function toggleSection(section) {
+          const content = document.getElementById(`team-${section}-section`);
+          const icon = document.getElementById(`toggle-icon-${section}`);
+          if (
+            content.style.display === "none" ||
+            content.style.display === ""
+          ) {
+            content.style.display = "block";
+            icon.textContent = "−";
+          } else {
+            content.style.display = "none";
+            icon.textContent = "+";
+          }
+        }
+      </script>
+      <img
+        src="/assets/img/LogoVBC.png"
+        alt="VBC Ebikon Logo"
+        class="footer-logo"
+      />
+      <div class="footer-links">
+        <a href="#">Impressum</a>
+        <a href="#">Datenschutz</a>
+        <a href="#">Cookie Einstellungen</a>
+      </div>
+      <div class="footer-social">
+        <a
+          href="https://www.instagram.com/vbc_ebikon/"
+          target="_blank"
+          rel="noopener"
+          aria-label="Instagram"
+        >
+          <svg
+            width="32"
+            height="32"
+            viewBox="0 0 448 512"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              d="M224,202.66A53.34,53.34,0,1,0,277.34,256,53.38,53.38,0,0,0,224,202.66Zm124.71-41a54,54,0,0,0-30.35-30.35C293.19,120,224,120,224,120s-69.19,0-94.36,11.31a54,54,0,0,0-30.35,30.35C88,162.81,88,224,88,224s0,69.19,11.31,94.36a54,54,0,0,0,30.35,30.35C154.81,392,224,392,224,392s69.19,0,94.36-11.31a54,54,0,0,0,30.35-30.35C360,293.19,360,224,360,224S360,154.81,348.71,161.66ZM224,338a82,82,0,1,1,82-82A82,82,0,0,1,224,338Zm85.4-148.6a19.2,19.2,0,1,1-19.2-19.2A19.2,19.2,0,0,1,309.4,189.4Z"
+            />
+          </svg>
+        </a>
+      </div>
+    </footer>
+    <script src="../js/templates.js"></script>
+    <script src="../js/script.js"></script>
+  </body>
+</html>

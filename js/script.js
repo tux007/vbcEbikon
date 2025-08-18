@@ -1,13 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
   // Team Konfiguration
   const teams = [
-    { teamId: 1730, gender: "f", name: "DJ1" },
-    { teamId: 1731, gender: "f", name: "DJ2" },
-    { teamId: 12773, gender: "f", name: "DJ3" },
-    { teamId: 4985, gender: "f", name: "Damen 1" },
-    { teamId: 2797, gender: "m", name: "Herren 1" },
-    { teamId: 128, gender: "f", name: "Damen 2" },
-    { teamId: 1728, gender: "m", name: "Herren 2" },
+    { teamId: 1730, gender: "f", name: "DJ1", groupId: "" },
+    { teamId: 1731, gender: "f", name: "DJ2", groupId: "" },
+    { teamId: 12773, gender: "f", name: "DJ3", groupId: "" },
+    { teamId: 4985, gender: "f", name: "Damen 1", groupId: "27263" },
+    { teamId: 2797, gender: "m", name: "Herren 1", groupId: "" },
+    { teamId: 128, gender: "f", name: "Damen 2", groupId: "" },
+    { teamId: 1728, gender: "m", name: "Herren 2", groupId: "" },
   ];
   const clubId = 911080;
   const apiBase = "https://api.volleyball.ch/indoor/recentResults";
@@ -60,6 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function renderBanners() {
     const slider = document.getElementById("banner-slider");
+    if (!slider) return;
     slider.innerHTML = "";
     for (let i = 0; i < bannersToShow; i++) {
       const idx = getBannerIndex(bannerStart + i);
@@ -85,20 +86,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function showBannerLoading() {
     const slider = document.getElementById("banner-slider");
+    if (!slider) return;
     slider.innerHTML = Templates.loadingSpinner();
   }
 
-  document.getElementById("banner-arrow-left").addEventListener("click", () => {
-    bannerStart = getBannerIndex(bannerStart - 1);
-    renderBanners();
-  });
+  const bannerArrowLeft = document.getElementById("banner-arrow-left");
+  if (bannerArrowLeft) {
+    bannerArrowLeft.addEventListener("click", () => {
+      bannerStart = getBannerIndex(bannerStart - 1);
+      renderBanners();
+    });
+  }
 
-  document
-    .getElementById("banner-arrow-right")
-    .addEventListener("click", () => {
+  const bannerArrowRight = document.getElementById("banner-arrow-right");
+  if (bannerArrowRight) {
+    bannerArrowRight.addEventListener("click", () => {
       bannerStart = getBannerIndex(bannerStart + 1);
       renderBanners();
     });
+  }
 
   // Zeige Spinner bevor die Banner geladen werden
   showBannerLoading();
@@ -210,45 +216,112 @@ document.addEventListener("DOMContentLoaded", () => {
     // Nach dem Rendern der letzten Ergebnisse Banner:
     renderNaechsteSpieleBanner();
   });
-});
 
-// Navbar active link handling
-document.addEventListener("DOMContentLoaded", () => {
-  const navLinks = document.querySelectorAll("nav a, .header-nav a");
-  if (navLinks.length > 0) {
-    // Remove all active classes
-    navLinks.forEach((link) => link.classList.remove("active"));
-
-    // Aktuellen Pfad bestimmen
-    const currentPath = window.location.pathname.replace(/\/+$/, "");
-    let foundActive = false;
-
-    navLinks.forEach((link) => {
-      const linkPath = link.getAttribute("href");
-      if (
-        linkPath &&
-        linkPath !== "#" &&
-        (linkPath === currentPath ||
-          (linkPath !== "/" && currentPath.endsWith(linkPath)))
-      ) {
-        link.classList.add("active");
-        foundActive = true;
-      }
-    });
-
-    // Wenn kein Link passt, Home als aktiv markieren (nur beim ersten Laden)
-    if (!foundActive) {
-      navLinks[0].classList.add("active");
-    }
-
-    // Add click handler to update active class
-    navLinks.forEach((link) => {
-      link.addEventListener("click", function (e) {
-        // Entferne active von allen Links
-        navLinks.forEach((l) => l.classList.remove("active"));
-        // Setze active nur auf den geklickten Link
-        this.classList.add("active");
+  // Rangliste für ein Team laden und anzeigen
+  function loadTeamRanking(teamName, groupId) {
+    const rankingContainer = document.getElementById("team-ranking-table");
+    if (!rankingContainer || !groupId) return;
+    rankingContainer.innerHTML = Templates.loadingSpinner();
+    fetch(`https://api.volleyball.ch/indoor/ranking/${groupId}`, {
+      headers: { Authorization: authHeader },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (!Array.isArray(data) || data.length === 0) {
+          rankingContainer.innerHTML =
+            '<div style="padding:1rem;">Keine Ranglistendaten gefunden.</div>';
+          return;
+        }
+        // Breite, linksbündige Tabelle ohne Umbruch
+        const html = `
+          <div class="banner" style="margin-bottom:1.5rem; text-align:left;">
+            <div class="banner-score-sets" style="margin-bottom: 1rem;">
+              <table style="width:100%; min-width:600px; border-collapse:collapse; table-layout: fixed;">
+                <thead>
+                  <tr>
+                    <th style="text-align:left; padding: 0.2rem 0.5rem; width:7%; font-size: 0.95em;">Rang</th>
+                    <th style="text-align:left; padding: 0.2rem 0.5rem; width:32%; font-size: 0.95em;">Team</th>
+                    <th style="text-align:left; padding: 0.2rem 0.5rem; width:11%; font-size: 0.95em;">Spiele</th>
+                    <th style="text-align:left; padding: 0.2rem 0.5rem; width:11%; font-size: 0.95em;">Siege</th>
+                    <th style="text-align:left; padding: 0.2rem 0.5rem; width:11%; font-size: 0.95em;">Niederlagen</th>
+                    <th style="text-align:left; padding: 0.2rem 0.5rem; width:11%; font-size: 0.95em;">Punkte</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${data
+                    .map(
+                      (row) => `
+                    <tr>
+                      <td style="padding: 0.2rem 0.5rem; font-size: 0.92em; white-space:nowrap;">${row.rank}</td>
+                      <td style="padding: 0.2rem 0.5rem; font-size: 0.92em; font-weight: bold; white-space:nowrap;">${row.teamCaption}</td>
+                      <td style="padding: 0.2rem 0.5rem; font-size: 0.92em; white-space:nowrap;">${row.games}</td>
+                      <td style="padding: 0.2rem 0.5rem; font-size: 0.92em; white-space:nowrap;">${row.wins}</td>
+                      <td style="padding: 0.2rem 0.5rem; font-size: 0.92em; white-space:nowrap;">${row.defeats}</td>
+                      <td style="padding: 0.2rem 0.5rem; font-size: 0.92em; white-space:nowrap;">${row.points}</td>
+                    </tr>
+                  `
+                    )
+                    .join("")}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        `;
+        rankingContainer.innerHTML = html;
+      })
+      .catch(() => {
+        rankingContainer.innerHTML =
+          '<div style="padding:1rem;">Fehler beim Laden der Rangliste.</div>';
       });
-    });
   }
+
+  // Automatisch für Damen 1 laden, wenn die Seite geladen ist
+  const rankingTable = document.getElementById("team-ranking-table");
+  if (rankingTable) {
+    const team = teams.find((t) => t.name === "Damen 1");
+    if (team && team.groupId) {
+      loadTeamRanking(team.name, team.groupId);
+    }
+  }
+
+  // Navbar active link handling
+  document.addEventListener("DOMContentLoaded", () => {
+    const navLinks = document.querySelectorAll("nav a, .header-nav a");
+    if (navLinks.length > 0) {
+      // Remove all active classes
+      navLinks.forEach((link) => link.classList.remove("active"));
+
+      // Aktuellen Pfad bestimmen
+      const currentPath = window.location.pathname.replace(/\/+$/, "");
+      let foundActive = false;
+
+      navLinks.forEach((link) => {
+        const linkPath = link.getAttribute("href");
+        if (
+          linkPath &&
+          linkPath !== "#" &&
+          (linkPath === currentPath ||
+            (linkPath !== "/" && currentPath.endsWith(linkPath)))
+        ) {
+          link.classList.add("active");
+          foundActive = true;
+        }
+      });
+
+      // Wenn kein Link passt, Home als aktiv markieren (nur beim ersten Laden)
+      if (!foundActive) {
+        navLinks[0].classList.add("active");
+      }
+
+      // Add click handler to update active class
+      navLinks.forEach((link) => {
+        link.addEventListener("click", function (e) {
+          // Entferne active von allen Links
+          navLinks.forEach((l) => l.classList.remove("active"));
+          // Setze active nur auf den geklickten Link
+          this.classList.add("active");
+        });
+      });
+    }
+  });
 });
