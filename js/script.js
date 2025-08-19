@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     { teamId: 1731, gender: "f", name: "DJ2", groupId: "" },
     { teamId: 12773, gender: "f", name: "DJ3", groupId: "" },
     { teamId: 4985, gender: "f", name: "Damen 1", groupId: "27263" },
-    { teamId: 2797, gender: "m", name: "Herren 1", groupId: "" },
+    { teamId: 2797, gender: "m", name: "Herren 1", groupId: "27278" },
     { teamId: 128, gender: "f", name: "Damen 2", groupId: "" },
     { teamId: 1728, gender: "m", name: "Herren 2", groupId: "" },
   ];
@@ -232,42 +232,8 @@ document.addEventListener("DOMContentLoaded", () => {
             '<div style="padding:1rem;">Keine Ranglistendaten gefunden.</div>';
           return;
         }
-        // Banner-Design, Tabelle exakt so breit wie das Teamfoto
-        const html = `
-          <div class="banner" style="margin-bottom:1.5rem; text-align:left;">
-            <div class="banner-score-sets" style="margin-bottom: 1rem;">
-              <table style="width:100%; border-collapse:collapse; table-layout:fixed;">
-                <thead>
-                  <tr>
-                    <th style="text-align:left; padding: 0.2rem 0.7rem; width:7%; font-size: 0.95em;">Rang</th>
-                    <th style="text-align:left; padding: 0.2rem 0.7rem; width:38%; font-size: 0.95em;">Team</th>
-                    <th style="text-align:left; padding: 0.2rem 0.7rem; width:11%; font-size: 0.95em;">Spiele</th>
-                    <th style="text-align:left; padding: 0.2rem 0.7rem; width:11%; font-size: 0.95em;">Siege</th>
-                    <th style="text-align:left; padding: 0.2rem 0.7rem; width:11%; font-size: 0.95em;">Niederlagen</th>
-                    <th style="text-align:left; padding: 0.2rem 0.7rem; width:11%; font-size: 0.95em;">Punkte</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  ${data
-                    .map(
-                      (row) => `
-                    <tr>
-                      <td style="padding: 0.2rem 0.7rem; font-size: 0.92em; white-space:nowrap;">${row.rank}</td>
-                      <td style="padding: 0.2rem 0.7rem; font-size: 0.92em; font-weight: bold; white-space:nowrap;">${row.teamCaption}</td>
-                      <td style="padding: 0.2rem 0.7rem; font-size: 0.92em; white-space:nowrap;">${row.games}</td>
-                      <td style="padding: 0.2rem 0.7rem; font-size: 0.92em; white-space:nowrap;">${row.wins}</td>
-                      <td style="padding: 0.2rem 0.7rem; font-size: 0.92em; white-space:nowrap;">${row.defeats}</td>
-                      <td style="padding: 0.2rem 0.7rem; font-size: 0.92em; white-space:nowrap;">${row.points}</td>
-                    </tr>
-                  `
-                    )
-                    .join("")}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        `;
-        rankingContainer.innerHTML = html;
+        // Nutze das Template für die Rangliste
+        rankingContainer.innerHTML = Templates.rankingBanner(data);
       })
       .catch(() => {
         rankingContainer.innerHTML =
@@ -278,7 +244,11 @@ document.addEventListener("DOMContentLoaded", () => {
   // Automatisch für Damen 1 laden, wenn die Seite geladen ist
   const rankingTable = document.getElementById("team-ranking-table");
   if (rankingTable) {
-    const team = teams.find((t) => t.name === "Damen 1");
+    // Teamname dynamisch aus dem H1-Element lesen
+    const teamTitleElem = document.querySelector(".team-title");
+    let teamName = teamTitleElem ? teamTitleElem.textContent.trim() : null;
+    // Sonderfall: Teamname kann im H1 abweichen, ggf. Mapping nötig
+    const team = teams.find((t) => t.name === teamName);
     if (team && team.groupId) {
       loadTeamRanking(team.name, team.groupId);
     }

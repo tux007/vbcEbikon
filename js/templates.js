@@ -98,6 +98,44 @@ const Templates = {
       </div>
     </div>
   `,
+
+  // Ranglisten - Tabelle
+  rankingBanner: function (data) {
+    return `
+      <div class="banner" style="margin-bottom:1.5rem; text-align:left;">
+        <div class="banner-score-sets" style="margin-bottom: 1rem;">
+          <table style="width:100%; border-collapse:collapse; table-layout:fixed;">
+            <thead>
+              <tr>
+                <th style="text-align:left; padding: 0.2rem 0.7rem; width:7%; font-size: 0.95em;">Rang</th>
+                <th style="text-align:left; padding: 0.2rem 0.7rem; width:38%; font-size: 0.95em;">Team</th>
+                <th style="text-align:left; padding: 0.2rem 0.7rem; width:11%; font-size: 0.95em;">Spiele</th>
+                <th style="text-align:left; padding: 0.2rem 0.7rem; width:11%; font-size: 0.95em;">Siege</th>
+                <th style="text-align:left; padding: 0.2rem 0.7rem; width:11%; font-size: 0.95em;">Niederlagen</th>
+                <th style="text-align:left; padding: 0.2rem 0.7rem; width:11%; font-size: 0.95em;">Punkte</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${data
+                .map(
+                  (row) => `
+                <tr>
+                  <td style="padding: 0.2rem 0.7rem; font-size: 0.92em; white-space:nowrap;">${row.rank}</td>
+                  <td style="padding: 0.2rem 0.7rem; font-size: 0.92em; font-weight: bold; white-space:nowrap;">${row.teamCaption}</td>
+                  <td style="padding: 0.2rem 0.7rem; font-size: 0.92em; white-space:nowrap;">${row.games}</td>
+                  <td style="padding: 0.2rem 0.7rem; font-size: 0.92em; white-space:nowrap;">${row.wins}</td>
+                  <td style="padding: 0.2rem 0.7rem; font-size: 0.92em; white-space:nowrap;">${row.defeats}</td>
+                  <td style="padding: 0.2rem 0.7rem; font-size: 0.92em; white-space:nowrap;">${row.points}</td>
+                </tr>
+              `
+                )
+                .join("")}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    `;
+  },
 };
 
 // Templates global verfügbar machen
