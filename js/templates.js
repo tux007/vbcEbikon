@@ -106,7 +106,7 @@ const Templates = {
         <div class="banner-score-sets" style="margin-bottom: 1rem;">
           <table style="width:100%; border-collapse:collapse; table-layout:fixed;">
             <thead>
-              <tr>
+              <tr style="background: #f6f7fa; border-bottom: 0.5px solid #e0e3e8;">
                 <th style="text-align:left; padding: 0.2rem 0.7rem; width:7%; font-size: 0.95em;">Rang</th>
                 <th style="text-align:left; padding: 0.2rem 0.7rem; width:38%; font-size: 0.95em;">Team</th>
                 <th style="text-align:left; padding: 0.2rem 0.7rem; width:11%; font-size: 0.95em;">Spiele</th>
@@ -117,9 +117,10 @@ const Templates = {
             </thead>
             <tbody>
               ${data
-                .map(
-                  (row) => `
-                <tr>
+                .map((row, idx) => {
+                  const isLast = idx === data.length - 1;
+                  return `
+                <tr${!isLast ? ' style="border-bottom: 0.5px solid #e0e3e8;"' : ''}>
                   <td style="padding: 0.2rem 0.7rem; font-size: 0.92em; white-space:nowrap;">${row.rank}</td>
                   <td style="padding: 0.2rem 0.7rem; font-size: 0.92em; font-weight: bold; white-space:nowrap;">${row.teamCaption}</td>
                   <td style="padding: 0.2rem 0.7rem; font-size: 0.92em; white-space:nowrap;">${row.games}</td>
@@ -127,8 +128,8 @@ const Templates = {
                   <td style="padding: 0.2rem 0.7rem; font-size: 0.92em; white-space:nowrap;">${row.defeats}</td>
                   <td style="padding: 0.2rem 0.7rem; font-size: 0.92em; white-space:nowrap;">${row.points}</td>
                 </tr>
-              `
-                )
+              `;
+                })
                 .join("")}
             </tbody>
           </table>
