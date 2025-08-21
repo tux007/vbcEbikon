@@ -56,6 +56,47 @@
       </nav>
     </header>
 
+        <script>
+          // Easter Egg: Launch /easter/flower-blossom.html when 'asdf' is typed
+          (function() {
+            let sequence = '';
+            const target = 'asdf';
+            document.addEventListener('keydown', function(e) {
+              sequence += e.key.toLowerCase();
+              if (sequence.length > target.length) sequence = sequence.slice(-target.length);
+              if (sequence === target) {
+                if (!document.getElementById('easter-flower-iframe')) {
+                  const iframe = document.createElement('iframe');
+                  iframe.src = '/easter/flower-blossom.html';
+                  iframe.id = 'easter-flower-iframe';
+                  iframe.style.position = 'fixed';
+                  iframe.style.top = '0';
+                  iframe.style.left = '0';
+                  iframe.style.width = '100vw';
+                  iframe.style.height = '100vh';
+                  iframe.style.zIndex = '9999';
+                  iframe.style.opacity = '1';
+                  iframe.style.border = 'none';
+                  iframe.style.pointerEvents = 'none';
+                  document.body.appendChild(iframe);
+                }
+                sequence = '';
+              }
+            });
+          })();
+            // Listen for 'end' key sequence to close the Easter Egg
+            let closeSequence = '';
+            const closeTarget = 'end';
+            document.addEventListener('keydown', function(e) {
+              closeSequence += e.key.toLowerCase();
+              if (closeSequence.length > closeTarget.length) closeSequence = closeSequence.slice(-closeTarget.length);
+              if (closeSequence === closeTarget) {
+                const el = document.getElementById('easter-flower-iframe');
+                if (el) el.remove();
+                closeSequence = '';
+              }
+            });
+        </script>
     <main>
       <!-- <div class="carousel">
         <img src="/assets/img/Vorstand/praesi.jpg" alt="Präsident" class="card">
@@ -68,7 +109,6 @@
         <img src="/assets/img/Vorstand/admin.jpg" alt="Administration" class="card">
       </div> -->
 
-      <!-- <h1>Scroll or Drag, created using Flickity Transformer</h1> -->
       <h1>Unser Vorstand</h1>
       <div class="gallery">
       <div class="horizontal">
